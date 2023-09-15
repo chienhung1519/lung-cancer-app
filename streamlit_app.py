@@ -1,6 +1,7 @@
 import streamlit as st
 
-picture = st.camera_input("Take a picture")
+from camera_input_live import camera_input_live
 
-if picture:
-    st.image(picture)
+image = camera_input_live()
+
+st.image(image)

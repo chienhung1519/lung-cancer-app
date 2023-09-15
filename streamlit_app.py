@@ -1,6 +1,6 @@
 import streamlit as st
-from streamlit_back_camera_input import back_camera_input
 
-image = back_camera_input()
-if image:
-    st.image(image)
+picture = st.camera_input(label_visibility="hidden")
+
+if picture:
+    st.image(picture)

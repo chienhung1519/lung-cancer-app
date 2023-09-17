@@ -11,6 +11,15 @@ from streamlit_lottie import st_lottie
 if "page" not in st.session_state:
     st.session_state["page"] = 1
 
+st.write('''<style>
+
+[data-testid="column"] {
+    width: calc(33.3333% - 1rem) !important;
+    flex: 1 1 calc(33.3333% - 1rem) !important;
+    min-width: calc(33% - 1rem) !important;
+}
+</style>''', unsafe_allow_html=True)
+
 # Tell streamlit that there is a component called camera_input_live,
 # and that the code to display that component is in the "frontend" folder
 frontend_dir = (Path(__file__).parent / "frontend").absolute()
@@ -56,10 +65,12 @@ if st.session_state.page == 1:
         st_lottie("https://lottie.host/aeb09430-58c1-4cde-9d82-6c22ff410b2e/iWUBJx0EHF.json")
 
     # Button
-    with placeholder3.container():  
-        home_button = st.button('Take Photo')
-        if home_button:
-            st.session_state["page"] = 2
+    with placeholder3.container():
+        col1, col2, col3 = st.columns(3)
+        with col2:
+            home_button = st.button('Take Photo')
+            if home_button:
+                st.session_state["page"] = 2
 
 elif st.session_state.page == 2:
         
@@ -69,15 +80,7 @@ elif st.session_state.page == 2:
     if image is not None:
         placeholder1.empty()
         st.image(image)
-        st.write('''<style>
 
-[data-testid="column"] {
-    width: calc(33.3333% - 1rem) !important;
-    flex: 1 1 calc(33.3333% - 1rem) !important;
-    min-width: calc(33% - 1rem) !important;
-}
-</style>''', unsafe_allow_html=True)
-        
         col1, col2, col3 = st.columns(3)
         with col1:
             back_button = st.button("Take Photo")

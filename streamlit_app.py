@@ -102,9 +102,18 @@ elif st.session_state.page == 3:
             st.experimental_rerun()
 
 elif st.session_state.page == 4:
-    st.write("Page 4")
+    st.markdown("<h1 style='text-align: center; color: blue;'>Report Summary</h1>", unsafe_allow_html=True)
+    st.info("The patient has been diagnosed with adenocarcinoma in situ in the middle lobe of the right lung, following a robotic wedge resection. The tumor is 1.8 cm in size and is considered unifocal and nonmucinous. The histologic type is adenocarcinoma in situ, nonmucinous. The tumor has not invaded the visceral pleura and no lymph-vascular invasion was identified. The closest margin is 1.0 cm. The patient's primary tumor is pTis, and regional lymph nodes are pNX. No distant metastasis was identified, and the TNM stage groupings are pSage 0 pTisNX.")
+    
+    st.markdown("<h1 style='text-align: center; color: blue;'>Survival</h1>", unsafe_allow_html=True)
+    st.warning("5 years")
 
-
+    on = st.toggle('Activate feature')
+    expander = st.expander("Clinical Trials")
+    expander.write(\"\"\"
+    https://clinicaltrials.gov/ct2/show/NCT00003829
+    https://clinicaltrials.gov/ct2/show/NCT00003830
+\"\"\")
 
 # picture = st.camera_input("Take a picture", label_visibility="collapsed")
 

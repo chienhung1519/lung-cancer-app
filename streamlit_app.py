@@ -109,8 +109,9 @@ elif st.session_state.page == 4:
     for percent_complete in range(100):
         time.sleep(0.1)
         my_bar.progress(percent_complete + 1, text=progress_text)
-        st.session_state["page"] = 5
-        st.experimental_rerun()
+        
+    st.session_state["page"] = 5
+    st.experimental_rerun()
 
 elif st.session_state.page == 5:
     st.markdown("<h1 style='text-align: center; color: blue;'>Report Summary</h1>", unsafe_allow_html=True)

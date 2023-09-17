@@ -53,12 +53,11 @@ with placeholder2.container():
 with placeholder3.container():  
     home_button = st.button('Take Photo')
 
-if home_button:
-    placeholder1.empty()
-    placeholder2.empty()
-    placeholder3.empty()
+    if home_button:
+        placeholder1.empty()
+        placeholder2.empty()
+        home_button.empty()
 
-    with placeholder2.container():  
         image = back_camera_input()
         # image = st.camera_input("Take Photo")
 

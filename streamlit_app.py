@@ -6,24 +6,21 @@ placeholder2 = st.empty()
 
 with placeholder1.container():
     # Title
-    st.markdown("<h1 style='text-align: center; color: red;'>Lung Cancer GPT</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color: blue;'>Lung Cancer GPT</h1>", unsafe_allow_html=True)
 
 with placeholder2.container():   
     # Vidio
     st_lottie("https://lottie.host/aeb09430-58c1-4cde-9d82-6c22ff410b2e/iWUBJx0EHF.json")
 
 # Button
-col1, col2, col3 , col4, col5 = st.columns(5)
+col1, col2, col3 = st.columns(3)
 with col1:
-    pass
+    st.write("")
 with col2:
-    pass
-with col4:
-    pass
-with col5:
-    pass
+    center_button = st.button('Take Photo')
 with col3 :
-    center_button = st.button('Button')
+    st.write("")
+
 
 
 # picture = st.camera_input("Take a picture", label_visibility="collapsed")

@@ -69,6 +69,15 @@ elif st.session_state.page == 2:
     if image is not None:
         placeholder1.empty()
         st.image(image)
+        st.write('''<style>
+
+[data-testid="column"] {
+    width: calc(33.3333% - 1rem) !important;
+    flex: 1 1 calc(33.3333% - 1rem) !important;
+    min-width: calc(33% - 1rem) !important;
+}
+</style>''', unsafe_allow_html=True)
+        
         col1, col2, col3 = st.columns(3)
         with col1:
             back_button = st.button("Take Photo")

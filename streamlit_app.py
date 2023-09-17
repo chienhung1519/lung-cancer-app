@@ -11,6 +11,9 @@ from streamlit_lottie import st_lottie
 if "page" not in st.session_state:
     st.session_state["page"] = 1
 
+if "image" not in st.session_state:
+    st.session_state["image"] = None
+
 st.write('''<style>
 
 [data-testid="column"] {
@@ -76,17 +79,24 @@ elif st.session_state.page == 2:
         
     with placeholder1.container():
         image = back_camera_input()
+        if image is not None:
+            st.session_state["image"] = image
+            st.session_state["page"] = 3
 
-    if image is not None:
-        placeholder1.empty()
-        st.image(image)
+elif st.session_state.page == 3:
 
-        col1, col2, col3 = st.columns(3)
-        with col1:
-            back_button = st.button("Take Photo")
-            st.session_state["page"] = 1
-        with col3:
-            next_button = st.button("Analyze")
+    st.image(st.session_state["image"])
+
+    col1, col2, col3, col4, col5 = st.columns(5)
+    with col1:
+        back_button = st.button("Take Photo")
+        st.session_state["page"] = 2
+    with col5:
+        next_button = st.button("Analyze")
+        st.session_state["page"] = 4
+
+elif st.session_state.page == 4:
+    st.write("Page 4")
 
 
 

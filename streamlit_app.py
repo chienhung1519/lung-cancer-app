@@ -87,11 +87,11 @@ elif st.session_state.page == 3:
 
     st.image(st.session_state["image"])
 
-    col1, col2, col3, col4, col5 = st.columns(5)
+    col1, col2, col3 = st.columns(3)
     with col1:
         back_button = st.button("Take Photo")
         st.session_state["page"] = 2
-    with col5:
+    with col3:
         next_button = st.button("Analyze")
         st.session_state["page"] = 4
 

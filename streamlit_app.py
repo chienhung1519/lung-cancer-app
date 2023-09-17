@@ -13,7 +13,7 @@ with placeholder2.container():
     st_lottie("https://lottie.host/aeb09430-58c1-4cde-9d82-6c22ff410b2e/iWUBJx0EHF.json")
 
 # Button
-col1, col2, col3 , col4, col5 = st.beta_columns(5)
+col1, col2, col3 , col4, col5 = st.columns(5)
 with col1:
     pass
 with col2:

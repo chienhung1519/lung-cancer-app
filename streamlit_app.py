@@ -57,11 +57,13 @@ if home_button:
     placeholder1.empty()
     placeholder2.empty()
     placeholder3.empty()
-    image = back_camera_input()
-    st.image(image)
+    with placeholder2.container():  
+        image = back_camera_input()
 
     if image is not None:
-        placeholder2.image(image)
+        placeholder2.empty()
+        with placeholder2.container(): 
+            st.image(image)
         # col1, col2, col3 = st.beta_columns(3)
         # with col1:
         #     back_button = st.button("Take Photo")

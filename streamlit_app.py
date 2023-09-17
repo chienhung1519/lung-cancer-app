@@ -2,6 +2,7 @@ import base64
 from io import BytesIO
 from pathlib import Path
 from typing import Optional
+import time
 
 import streamlit.components.v1 as components
 import streamlit as st
@@ -102,6 +103,16 @@ elif st.session_state.page == 3:
             st.experimental_rerun()
 
 elif st.session_state.page == 4:
+    progress_text = "Analyzing. Please wait."
+    my_bar = st.progress(0, text=progress_text)
+
+    for percent_complete in range(100):
+        time.sleep(0.1)
+        my_bar.progress(percent_complete + 1, text=progress_text)
+        st.session_state["page"] = 5
+        st.experimental_rerun()
+
+elif st.session_state.page == 5:
     st.markdown("<h1 style='text-align: center; color: blue;'>Report Summary</h1>", unsafe_allow_html=True)
     st.info("The patient has been diagnosed with adenocarcinoma in situ in the middle lobe of the right lung, following a robotic wedge resection. The tumor is 1.8 cm in size and is considered unifocal and nonmucinous. The histologic type is adenocarcinoma in situ, nonmucinous. The tumor has not invaded the visceral pleura and no lymph-vascular invasion was identified. The closest margin is 1.0 cm. The patient's primary tumor is pTis, and regional lymph nodes are pNX. No distant metastasis was identified, and the TNM stage groupings are pSage 0 pTisNX.")
     

@@ -59,7 +59,7 @@ if home_button:
     placeholder3.empty()
     image = back_camera_input()
 
-    if image:
+    if image is not None:
         st.image(image)
         col1, col2, col3 = st.beta_columns(3)
         with col1:

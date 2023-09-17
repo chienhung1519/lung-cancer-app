@@ -20,7 +20,6 @@ function sendValue(value) {
            
       let video = document.getElementById('video');
       let canvas = document.getElementById('canvas');
-      let button = document.getElementById('button');
   
       video.setAttribute('width', '100%');
       video.setAttribute('height', 'auto');
@@ -48,8 +47,7 @@ function sendValue(value) {
       
       Streamlit.setFrameHeight(height);
         
-      //video.addEventListener('click', takePicture);
-      button.addEventListener('click', takePicture);
+      video.addEventListener('click', takePicture);
       window.rendered = true
     }
   }

@@ -39,6 +39,7 @@ def back_camera_input(
 
 placeholder1 = st.empty()
 placeholder2 = st.empty()
+placeholder3 = st.empty()
 
 with placeholder1.container():
     # Title
@@ -49,10 +50,13 @@ with placeholder2.container():
     st_lottie("https://lottie.host/aeb09430-58c1-4cde-9d82-6c22ff410b2e/iWUBJx0EHF.json")
 
 # Button
-home_button = st.button('Take Photo')
+with placeholder3.container():  
+    home_button = st.button('Take Photo')
+
 if home_button:
     placeholder1.empty()
     placeholder2.empty()
+    placeholder3.empty()
     image = back_camera_input()
 
 

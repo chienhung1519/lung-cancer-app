@@ -59,13 +59,13 @@ if home_button:
     placeholder3.empty()
     image = back_camera_input()
 
-if image:
-    st.image(image)
-    col1, col2, col3 = st.beta_columns(3)
-    with col1:
-        back_button = st.button("Take Photo")
-    with col3:
-        next_button = st.button("Analyze")
+    if image:
+        st.image(image)
+        col1, col2, col3 = st.beta_columns(3)
+        with col1:
+            back_button = st.button("Take Photo")
+        with col3:
+            next_button = st.button("Analyze")
 
 
 

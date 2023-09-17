@@ -7,6 +7,10 @@ import streamlit.components.v1 as components
 import streamlit as st
 from streamlit_lottie import st_lottie
 
+# Initialization
+if "page" not in st.session_state:
+    st.session_state["page"] = 1
+
 # Tell streamlit that there is a component called camera_input_live,
 # and that the code to display that component is in the "frontend" folder
 frontend_dir = (Path(__file__).parent / "frontend").absolute()
@@ -41,22 +45,25 @@ placeholder1 = st.empty()
 placeholder2 = st.empty()
 placeholder3 = st.empty()
 
-with placeholder1.container():
-    # Title
-    st.markdown("<h1 style='text-align: center; color: blue;'>Lung Cancer GPT</h1>", unsafe_allow_html=True)
+if st.session_state.page == 1:
+    
+    with placeholder1.container():
+        # Title
+        st.markdown("<h1 style='text-align: center; color: blue;'>Lung Cancer GPT</h1>", unsafe_allow_html=True)
 
-with placeholder2.container():   
-    # Vidio
-    st_lottie("https://lottie.host/aeb09430-58c1-4cde-9d82-6c22ff410b2e/iWUBJx0EHF.json")
+    with placeholder2.container():   
+        # Vidio
+        st_lottie("https://lottie.host/aeb09430-58c1-4cde-9d82-6c22ff410b2e/iWUBJx0EHF.json")
 
-# Button
-with placeholder3.container():  
-    home_button = st.button('Take Photo')
+    # Button
+    with placeholder3.container():  
+        home_button = st.button('Take Photo')
+        if home_button:
+            st.session_state["page"] = 2
 
-    if home_button:
-        placeholder1.empty()
-        placeholder2.empty()
-
+elif st.session_state.page == 2:
+        
+    with placeholder1.container():
         image = back_camera_input()
         # image = st.camera_input("Take Photo")
 

@@ -20,10 +20,10 @@ function sendValue(value) {
            
       let video = document.getElementById('video');
       let canvas = document.getElementById('canvas');
+      let button = document.getElementById('button');
   
       video.setAttribute('width', '100%');
-      //video.setAttribute('height', 'auto');
-      video.setAttribute('height', '100%');
+      video.setAttribute('height', 'auto');
       
       const constraints =  { facingMode: 'environment', advanced : [{focusMode: "continuous"}]};
       navigator.mediaDevices.getUserMedia({ video: constraints })
@@ -48,7 +48,8 @@ function sendValue(value) {
       
       Streamlit.setFrameHeight(height);
         
-      video.addEventListener('click', takePicture);
+      //video.addEventListener('click', takePicture);
+      button.addEventListener('click', takePicture);
       window.rendered = true
     }
   }

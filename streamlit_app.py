@@ -56,7 +56,6 @@ with placeholder3.container():
     if home_button:
         placeholder1.empty()
         placeholder2.empty()
-        home_button.empty()
 
         image = back_camera_input()
         # image = st.camera_input("Take Photo")

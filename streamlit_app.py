@@ -15,11 +15,11 @@ with placeholder2.container():
 # Button
 col1, col2, col3 = st.columns(3)
 with col1:
-    st.write("")
+    st.write("     ")
 with col2:
     center_button = st.button('Take Photo')
 with col3 :
-    st.write("")
+    st.write("     ")
 
 
 

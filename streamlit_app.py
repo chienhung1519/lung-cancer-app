@@ -65,15 +65,14 @@ elif st.session_state.page == 2:
         
     with placeholder1.container():
         image = back_camera_input()
-        # image = st.camera_input("Take Photo")
 
-        if image is not None:
-            st.write(image)
-            col1, col2, col3 = st.columns(3)
-            with col1:
-                back_button = st.button("Take Photo")
-            with col3:
-                next_button = st.button("Analyze")
+    if image is not None:
+        st.image(image)
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            back_button = st.button("Take Photo")
+        with col3:
+            next_button = st.button("Analyze")
 
 
 

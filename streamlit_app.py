@@ -60,7 +60,7 @@ if home_button:
     image = back_camera_input()
 
     if image is not None:
-        st.image(image)
+        placeholder2.image(image)
         # col1, col2, col3 = st.beta_columns(3)
         # with col1:
         #     back_button = st.button("Take Photo")

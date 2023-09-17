@@ -67,6 +67,7 @@ elif st.session_state.page == 2:
         image = back_camera_input()
 
     if image is not None:
+        placeholder1.empty()
         st.image(image)
         col1, col2, col3 = st.columns(3)
         with col1:

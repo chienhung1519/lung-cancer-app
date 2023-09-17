@@ -88,42 +88,47 @@ elif st.session_state.page == 2:
 
 elif st.session_state.page == 3:
 
-    st.image(st.session_state["image"])
+    with placeholder1.container():
+        st.image(st.session_state["image"])
 
-    col1, col2, col3 = st.columns(3)
-    with col1:
-        back_button = st.button("Take Photo")
-        if back_button:
-            st.session_state["page"] = 2
-            st.experimental_rerun()
-    with col3:
-        next_button = st.button("Analyze")
-        if next_button:
-            st.session_state["page"] = 4
-            st.experimental_rerun()
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            back_button = st.button("Take Photo")
+            if back_button:
+                st.session_state["page"] = 2
+                st.experimental_rerun()
+        with col3:
+            next_button = st.button("Analyze")
+            if next_button:
+                st.session_state["page"] = 4
+                st.experimental_rerun()
 
 elif st.session_state.page == 4:
-    progress_text = "Analyzing. Please wait."
-    my_bar = st.progress(0, text=progress_text)
+    with placeholder1.container():
+        progress_text = "Analyzing. Please wait."
+        my_bar = st.progress(0, text=progress_text)
 
-    for percent_complete in range(100):
-        time.sleep(0.1)
-        my_bar.progress(percent_complete + 1, text=progress_text)
-        
-    st.session_state["page"] = 5
-    st.experimental_rerun()
+        for percent_complete in range(100):
+            time.sleep(0.1)
+            my_bar.progress(percent_complete + 1, text=progress_text)
+
+        st.session_state["page"] = 5
+        st.experimental_rerun()
 
 elif st.session_state.page == 5:
-    st.markdown("<h1 style='text-align: center; color: blue;'>Report Summary</h1>", unsafe_allow_html=True)
-    st.info("The patient has been diagnosed with adenocarcinoma in situ in the middle lobe of the right lung, following a robotic wedge resection. The tumor is 1.8 cm in size and is considered unifocal and nonmucinous. The histologic type is adenocarcinoma in situ, nonmucinous. The tumor has not invaded the visceral pleura and no lymph-vascular invasion was identified. The closest margin is 1.0 cm. The patient's primary tumor is pTis, and regional lymph nodes are pNX. No distant metastasis was identified, and the TNM stage groupings are pSage 0 pTisNX.")
-    
-    st.markdown("<h1 style='text-align: center; color: blue;'>Survival</h1>", unsafe_allow_html=True)
-    st.warning("5 years")
+    with placeholder1.container():
+        st.markdown("<h1 style='text-align: center; color: blue;'>Report Summary</h1>", unsafe_allow_html=True)
+        st.info("The patient has been diagnosed with adenocarcinoma in situ in the middle lobe of the right lung, following a robotic wedge resection. The tumor is 1.8 cm in size and is considered unifocal and nonmucinous. The histologic type is adenocarcinoma in situ, nonmucinous. The tumor has not invaded the visceral pleura and no lymph-vascular invasion was identified. The closest margin is 1.0 cm. The patient's primary tumor is pTis, and regional lymph nodes are pNX. No distant metastasis was identified, and the TNM stage groupings are pSage 0 pTisNX.")
+        
+        st.markdown("<h1 style='text-align: center; color: blue;'>Survival</h1>", unsafe_allow_html=True)
+        st.warning("5 years")
 
-    expander = st.expander("Clinical Trials")
-    expander.write("[https://clinicaltrials.gov/ct2/show/NCT00003829](https://clinicaltrials.gov/ct2/show/NCT00003829)")
+        expander = st.expander("Clinical Trials")
+        expander.write("[https://clinicaltrials.gov/ct2/show/NCT00003829](https://clinicaltrials.gov/ct2/show/NCT00003829)")
 
-# picture = st.camera_input("Take a picture", label_visibility="collapsed")
-
-# if picture:
-#     st.image(picture)
+        col1, col2, col3 = st.columns(3)
+        with col2:
+            back_button = st.button("Take Another Photo")
+            if back_button:
+                st.session_state["page"] = 2
+                st.experimental_rerun()

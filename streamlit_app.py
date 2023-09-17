@@ -62,7 +62,7 @@ with placeholder3.container():
 
         if image is not None:
             st.write(image)
-            col1, col2, col3 = st.beta_columns(3)
+            col1, col2, col3 = st.columns(3)
             with col1:
                 back_button = st.button("Take Photo")
             with col3:

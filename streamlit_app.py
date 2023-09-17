@@ -110,10 +110,7 @@ elif st.session_state.page == 4:
 
     on = st.toggle('Activate feature')
     expander = st.expander("Clinical Trials")
-    expander.write(\"\"\"
-    https://clinicaltrials.gov/ct2/show/NCT00003829
-    https://clinicaltrials.gov/ct2/show/NCT00003830
-\"\"\")
+    expander.write("[https://clinicaltrials.gov/ct2/show/NCT00003829](https://clinicaltrials.gov/ct2/show/NCT00003829)")
 
 # picture = st.camera_input("Take a picture", label_visibility="collapsed")
 

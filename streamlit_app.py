@@ -74,6 +74,7 @@ if st.session_state.page == 1:
             home_button = st.button('Take Photo')
             if home_button:
                 st.session_state["page"] = 2
+                st.experimental_rerun()
 
 elif st.session_state.page == 2:
         
@@ -82,6 +83,7 @@ elif st.session_state.page == 2:
         if image is not None:
             st.session_state["image"] = image
             st.session_state["page"] = 3
+            st.experimental_rerun()
 
 elif st.session_state.page == 3:
 
@@ -92,10 +94,12 @@ elif st.session_state.page == 3:
         back_button = st.button("Take Photo")
         if back_button:
             st.session_state["page"] = 2
+            st.experimental_rerun()
     with col3:
         next_button = st.button("Analyze")
         if next_button:
             st.session_state["page"] = 4
+            st.experimental_rerun()
 
 elif st.session_state.page == 4:
     st.write("Page 4")

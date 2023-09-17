@@ -37,38 +37,43 @@ def back_camera_input(
 
     return component_value
 
-placeholder1 = st.empty()
-placeholder2 = st.empty()
-placeholder3 = st.empty()
+image = back_camera_input()
 
-with placeholder1.container():
-    # Title
-    st.markdown("<h1 style='text-align: center; color: blue;'>Lung Cancer GPT</h1>", unsafe_allow_html=True)
+if image is not None:
+    st.image(image)
 
-with placeholder2.container():   
-    # Vidio
-    st_lottie("https://lottie.host/aeb09430-58c1-4cde-9d82-6c22ff410b2e/iWUBJx0EHF.json")
+# placeholder1 = st.empty()
+# placeholder2 = st.empty()
+# placeholder3 = st.empty()
 
-# Button
-with placeholder3.container():  
-    home_button = st.button('Take Photo')
+# with placeholder1.container():
+#     # Title
+#     st.markdown("<h1 style='text-align: center; color: blue;'>Lung Cancer GPT</h1>", unsafe_allow_html=True)
 
-if home_button:
-    placeholder1.empty()
-    placeholder2.empty()
-    placeholder3.empty()
-    with placeholder2.container():  
-        image = back_camera_input()
+# with placeholder2.container():   
+#     # Vidio
+#     st_lottie("https://lottie.host/aeb09430-58c1-4cde-9d82-6c22ff410b2e/iWUBJx0EHF.json")
 
-    if image is not None:
-        placeholder2.empty()
-        with placeholder2.container(): 
-            st.image(image)
-        # col1, col2, col3 = st.beta_columns(3)
-        # with col1:
-        #     back_button = st.button("Take Photo")
-        # with col3:
-        #     next_button = st.button("Analyze")
+# # Button
+# with placeholder3.container():  
+#     home_button = st.button('Take Photo')
+
+# if home_button:
+#     placeholder1.empty()
+#     placeholder2.empty()
+#     placeholder3.empty()
+#     with placeholder2.container():  
+#         image = back_camera_input()
+
+#     if image is not None:
+#         placeholder2.empty()
+#         with placeholder2.container(): 
+#             st.image(image)
+#         col1, col2, col3 = st.beta_columns(3)
+#         with col1:
+#             back_button = st.button("Take Photo")
+#         with col3:
+#             next_button = st.button("Analyze")
 
 
 

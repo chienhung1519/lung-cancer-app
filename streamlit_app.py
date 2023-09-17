@@ -37,14 +37,17 @@ def back_camera_input(
 
     return component_value
 
-image = back_camera_input()
+placeholder1 = st.empty()
+placeholder2 = st.empty()
+placeholder3 = st.empty()
+
+with placeholder1.container():
+    image = back_camera_input()
 
 if image is not None:
-    st.image(image)
-
-# placeholder1 = st.empty()
-# placeholder2 = st.empty()
-# placeholder3 = st.empty()
+    placeholder1.empty()
+    with placeholder1.container():
+        st.image(image)
 
 # with placeholder1.container():
 #     # Title

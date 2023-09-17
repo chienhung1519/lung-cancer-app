@@ -53,19 +53,20 @@ with placeholder2.container():
 with placeholder3.container():  
     home_button = st.button('Take Photo')
 
-    if home_button:
-        placeholder1.empty()
-        placeholder2.empty()
-        placeholder3.empty()
-        image = back_camera_input()
+if home_button:
+    placeholder1.empty()
+    placeholder2.empty()
+    placeholder3.empty()
+    image = back_camera_input()
+    st.image(image)
 
-        if image is not None:
-            placeholder2.image(image)
-            # col1, col2, col3 = st.beta_columns(3)
-            # with col1:
-            #     back_button = st.button("Take Photo")
-            # with col3:
-            #     next_button = st.button("Analyze")
+    if image is not None:
+        placeholder2.image(image)
+        # col1, col2, col3 = st.beta_columns(3)
+        # with col1:
+        #     back_button = st.button("Take Photo")
+        # with col3:
+        #     next_button = st.button("Analyze")
 
 
 

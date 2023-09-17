@@ -72,6 +72,7 @@ elif st.session_state.page == 2:
         col1, col2, col3 = st.columns(3)
         with col1:
             back_button = st.button("Take Photo")
+            st.session_state["page"] = 1
         with col3:
             next_button = st.button("Analyze")
 

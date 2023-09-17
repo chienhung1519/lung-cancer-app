@@ -90,10 +90,12 @@ elif st.session_state.page == 3:
     col1, col2, col3 = st.columns(3)
     with col1:
         back_button = st.button("Take Photo")
-        st.session_state["page"] = 2
+        if back_button:
+            st.session_state["page"] = 2
     with col3:
         next_button = st.button("Analyze")
-        st.session_state["page"] = 4
+        if next_button:
+            st.session_state["page"] = 4
 
 elif st.session_state.page == 4:
     st.write("Page 4")

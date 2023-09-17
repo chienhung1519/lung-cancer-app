@@ -108,7 +108,6 @@ elif st.session_state.page == 4:
     st.markdown("<h1 style='text-align: center; color: blue;'>Survival</h1>", unsafe_allow_html=True)
     st.warning("5 years")
 
-    on = st.toggle('Activate feature')
     expander = st.expander("Clinical Trials")
     expander.write("[https://clinicaltrials.gov/ct2/show/NCT00003829](https://clinicaltrials.gov/ct2/show/NCT00003829)")
 

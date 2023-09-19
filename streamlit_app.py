@@ -103,7 +103,7 @@ elif st.session_state.page == 3:
             next_button = st.button("Analyze")
             if next_button:
                 st.session_state["page"] = 4
-                with placeholder1.container():
+                with placeholder2.container():
                     progress_text = "Analyzing. Please wait."
                     my_bar = st.progress(0, text=progress_text)
 

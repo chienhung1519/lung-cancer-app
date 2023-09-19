@@ -92,7 +92,7 @@ elif st.session_state.page == 3:
     with placeholder1.container():
         st.image(st.session_state["image"])
 
-    with placeholder2.container():
+    with placeholder3.container():
         col1, col2, col3 = st.columns(3)
         with col1:
             back_button = st.button("Take Photo")
@@ -103,21 +103,30 @@ elif st.session_state.page == 3:
             next_button = st.button("Analyze")
             if next_button:
                 st.session_state["page"] = 4
-                st.experimental_rerun()
+                with placeholder1.container():
+                    progress_text = "Analyzing. Please wait."
+                    my_bar = st.progress(0, text=progress_text)
+
+                    for percent_complete in range(100):
+                        time.sleep(0.1)
+                        my_bar.progress(percent_complete + 1, text=progress_text)
+
+                    st.session_state["page"] = 4
+                    st.experimental_rerun()
+
+# elif st.session_state.page == 4:
+#     with placeholder1.container():
+#         progress_text = "Analyzing. Please wait."
+#         my_bar = st.progress(0, text=progress_text)
+
+#         for percent_complete in range(100):
+#             time.sleep(0.1)
+#             my_bar.progress(percent_complete + 1, text=progress_text)
+
+#         st.session_state["page"] = 5
+#         st.experimental_rerun()
 
 elif st.session_state.page == 4:
-    with placeholder1.container():
-        progress_text = "Analyzing. Please wait."
-        my_bar = st.progress(0, text=progress_text)
-
-        for percent_complete in range(100):
-            time.sleep(0.1)
-            my_bar.progress(percent_complete + 1, text=progress_text)
-
-        st.session_state["page"] = 5
-        st.experimental_rerun()
-
-elif st.session_state.page == 5:
     with placeholder1.container():
         st.markdown("<h1 style='text-align: center; color: blue;'>Report Summary</h1>", unsafe_allow_html=True)
         st.info("The patient has been diagnosed with adenocarcinoma in situ in the middle lobe of the right lung, following a robotic wedge resection. The tumor is 1.8 cm in size and is considered unifocal and nonmucinous. The histologic type is adenocarcinoma in situ, nonmucinous. The tumor has not invaded the visceral pleura and no lymph-vascular invasion was identified. The closest margin is 1.0 cm. The patient's primary tumor is pTis, and regional lymph nodes are pNX. No distant metastasis was identified, and the TNM stage groupings are pSage 0 pTisNX.")

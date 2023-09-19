@@ -7,7 +7,6 @@ import time
 import streamlit.components.v1 as components
 import streamlit as st
 from streamlit_lottie import st_lottie
-from camera_input_live import camera_input_live
 
 # Initialization
 if "page" not in st.session_state:
@@ -83,8 +82,7 @@ elif st.session_state.page == 2:
         
     with placeholder1.container():
         # image = back_camera_input()
-        # image = st.camera_input("Take a picture")
-        image = camera_input_live()
+        image = st.camera_input("Take a picture")
         if image is not None:
             st.session_state["image"] = image
             st.session_state["page"] = 3

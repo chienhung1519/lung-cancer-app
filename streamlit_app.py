@@ -81,7 +81,8 @@ if st.session_state.page == 1:
 elif st.session_state.page == 2:
         
     with placeholder1.container():
-        image = back_camera_input()
+        # image = back_camera_input()
+        image = st.camera_input("Take a picture")
         if image is not None:
             st.session_state["image"] = image
             st.session_state["page"] = 3

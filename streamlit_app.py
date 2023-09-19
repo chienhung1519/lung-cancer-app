@@ -44,6 +44,7 @@ def back_camera_input(
         width=width,
         key=key,
     )
+    # b64_data: Optional[str] = _component_func(key=key)
 
     if b64_data is None:
         return None
@@ -91,6 +92,7 @@ elif st.session_state.page == 3:
     with placeholder1.container():
         st.image(st.session_state["image"])
 
+    with placeholder2.container():
         col1, col2, col3 = st.columns(3)
         with col1:
             back_button = st.button("Take Photo")

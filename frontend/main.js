@@ -25,7 +25,8 @@ function sendValue(value) {
       video.setAttribute('height', 'auto');
       
       const constraints =  { facingMode: 'environment', advanced : [{focusMode: "continuous"}]};
-      navigator.mediaDevices.getUserMedia({ video: constraints })
+      //navigator.mediaDevices.getUserMedia({ video: constraints })
+      navigator.mediaDevices.getUserMedia({ video: true })
         .then(function(stream) {
           video.srcObject = stream;
           video.play();

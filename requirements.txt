@@ -1,2 +1,3 @@
 streamlit-lottie
 jinja2
+streamlit-camera-input-live

@@ -130,13 +130,13 @@ elif st.session_state.page == 3:
 elif st.session_state.page == 4:
     with placeholder1.container():
         st.markdown("<h1 style='text-align: center; color: blue;'>Report Summary</h1>", unsafe_allow_html=True)
-        st.info("The patient has been diagnosed with adenocarcinoma in situ in the middle lobe of the right lung, following a robotic wedge resection. The tumor is 1.8 cm in size and is considered unifocal and nonmucinous. The histologic type is adenocarcinoma in situ, nonmucinous. The tumor has not invaded the visceral pleura and no lymph-vascular invasion was identified. The closest margin is 1.0 cm. The patient's primary tumor is pTis, and regional lymph nodes are pNX. No distant metastasis was identified, and the TNM stage groupings are pSage 0 pTisNX.")
+        st.info("Overall, the patient's pathology reveals a histology subtype of ADC (Adenocarcinoma) with a predominant lepidic pattern. The PD-L1 expression was tested using the 22C3 assay, showing a tumor proportion score (TPS) of 0%. Among the driver mutations tested, the presence of CK7 and TTF-1 was detected. The tumor staging according to post-surgical assessment indicates a primary tumor of T4 category, and the status of regional lymph nodes (pN) is unknown (Nx). Additionally, distant metastasis (pM) is observed in the form of M1a category. Consequently, the patient's overall stage is classified as IVA.")
         
         st.markdown("<h1 style='text-align: center; color: blue;'>Survival</h1>", unsafe_allow_html=True)
         st.warning("5 years")
 
         expander = st.expander("Clinical Trials")
-        expander.write("[https://clinicaltrials.gov/ct2/show/NCT00003829](https://clinicaltrials.gov/ct2/show/NCT00003829)")
+        expander.write("[https://www1.cde.org.tw/ct_taiwan/search_case2.php?caseno_ind%5B1%5D=14094](https://www1.cde.org.tw/ct_taiwan/search_case2.php?caseno_ind%5B1%5D=14094)")
 
         col1, col2, col3 = st.columns(3)
         with col2:

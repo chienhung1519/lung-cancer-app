@@ -63,7 +63,7 @@ if st.session_state.page == 1:
     
     with placeholder1.container():
         # Title
-        st.markdown("<h1 style='text-align: center; color: blue;'>Lung Cancer GPT</h1>", unsafe_allow_html=True)
+        st.markdown("<h1 style='text-align: center; color: #ff4b4b;'>LungGPT</h1>", unsafe_allow_html=True)
 
     with placeholder2.container():   
         # Vidio

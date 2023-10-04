@@ -76,7 +76,7 @@ if st.session_state.page == 1:
             home_button = st.button('Take Photo')
             if home_button:
                 st.session_state["page"] = 2
-                st.experimental_rerun()
+                st.rerun()
 
 elif st.session_state.page == 2:
         
@@ -86,7 +86,7 @@ elif st.session_state.page == 2:
         if image is not None:
             st.session_state["image"] = image
             st.session_state["page"] = 3
-            st.experimental_rerun()
+            st.rerun()
 
 elif st.session_state.page == 3:
 
@@ -99,7 +99,7 @@ elif st.session_state.page == 3:
             back_button = st.button("Take Photo")
             if back_button:
                 st.session_state["page"] = 2
-                st.experimental_rerun()
+                st.rerun()
         with col3:
             next_button = st.button("Analyze")
             if next_button:
@@ -113,7 +113,7 @@ elif st.session_state.page == 3:
                         my_bar.progress(percent_complete + 1, text=progress_text)
 
                     st.session_state["page"] = 4
-                    st.experimental_rerun()
+                    st.rerun()
 
 # elif st.session_state.page == 4:
 #     with placeholder1.container():
@@ -143,4 +143,4 @@ elif st.session_state.page == 4:
             back_button = st.button("Take Another Photo")
             if back_button:
                 st.session_state["page"] = 2
-                st.experimental_rerun()
+                st.rerun()

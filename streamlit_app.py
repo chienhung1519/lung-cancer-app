@@ -132,7 +132,7 @@ elif st.session_state.page == 4:
         st.markdown("<h1 style='text-align: center; color: #ff4b4b;'>Report Summary</h1>", unsafe_allow_html=True)
         st.info("Overall, the patient's pathology reveals a histology subtype of ADC (Adenocarcinoma) with a predominant lepidic pattern. The PD-L1 expression was tested using the 22C3 assay, showing a tumor proportion score (TPS) of 0%. Among the driver mutations tested, the presence of CK7 and TTF-1 was detected. The tumor staging according to post-surgical assessment indicates a primary tumor of T4 category, and the status of regional lymph nodes (pN) is unknown (Nx). Additionally, distant metastasis (pM) is observed in the form of M1a category. Consequently, the patient's overall stage is classified as IVA.")
         
-        st.markdown("<h1 style='text-align: center; color: blue;'>Survival</h1>", unsafe_allow_html=True)
+        st.markdown("<h1 style='text-align: center; color: #ff4b4b;'>Survival</h1>", unsafe_allow_html=True)
         st.warning("1.5 years")
 
         expander = st.expander("Clinical Trials")

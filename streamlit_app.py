@@ -114,7 +114,7 @@ elif st.session_state.page == 3:
         st.image(file_path)
 
     with placeholder2.container():
-        st.json(json_response)
+        st.write(json_response)
 
     with placeholder3.container():
         col1, col2, col3 = st.columns(3)

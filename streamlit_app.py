@@ -88,6 +88,8 @@ elif st.session_state.page == 2:
         if image is not None:
             st.session_state["image"] = image
             st.session_state["page"] = 3
+            with open ('test.jpg','wb') as file:
+                file.write(image.getbuffer())
             st.rerun()
 
 elif st.session_state.page == 3:
@@ -102,7 +104,10 @@ elif st.session_state.page == 3:
         'strategy': 'auto',
     }
 
-    response = requests.post(url, headers=headers, data=data, files=st.session_state["image"])
+    file_path = "test.jpg"
+    file_data = {'files': open(file_path, 'rb')}
+
+    response = requests.post(url, headers=headers, data=data, files=file_data)
     json_response = response.json()
 
     with placeholder1.container():

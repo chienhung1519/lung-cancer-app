@@ -3,6 +3,8 @@ from io import BytesIO
 from pathlib import Path
 from typing import Optional
 import time
+import os
+import requests
 
 import streamlit.components.v1 as components
 import streamlit as st
@@ -90,8 +92,24 @@ elif st.session_state.page == 2:
 
 elif st.session_state.page == 3:
 
+    url = 'https://api.unstructured.io/general/v0/general'
+    headers = {
+        'accept': 'application/json',
+        'unstructured-api-key': os.environ['UNSTRUCTURED_API_KEY'],
+    }
+
+    data = {
+        'strategy': 'auto',
+    }
+
+    response = requests.post(url, headers=headers, data=data, files=st.session_state["image"])
+    json_response = response.json()
+
     with placeholder1.container():
         st.image(st.session_state["image"])
+
+    with placeholder2.container():
+        st.json(json_response)
 
     with placeholder3.container():
         col1, col2, col3 = st.columns(3)

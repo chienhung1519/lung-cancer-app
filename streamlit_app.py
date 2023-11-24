@@ -95,7 +95,7 @@ elif st.session_state.page == 3:
     url = 'https://api.unstructured.io/general/v0/general'
     headers = {
         'accept': 'application/json',
-        'unstructured-api-key': os.environ['UNSTRUCTURED_API_KEY'],
+        'unstructured-api-key': st.secrets['UNSTRUCTURED_API_KEY'],
     }
 
     data = {

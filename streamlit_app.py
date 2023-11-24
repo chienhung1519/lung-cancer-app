@@ -10,6 +10,9 @@ import streamlit.components.v1 as components
 import streamlit as st
 from streamlit_lottie import st_lottie
 
+from langchain.document_loaders import UnstructuredAPIFileLoader
+
+
 # Initialization
 if "page" not in st.session_state:
     st.session_state["page"] = 1
@@ -57,9 +60,25 @@ def back_camera_input(
 
     return component_value
 
+def parse_unstructured_data(file_path):
+    url = 'https://api.unstructured.io/general/v0/general'
+    headers = {
+        'accept': 'application/json',
+        'unstructured-api-key': st.secrets['UNSTRUCTURED_API_KEY'],
+    }
+
+    data = {'strategy': 'auto',}
+    file_data = {'files': open(file_path, 'rb')}
+
+    response = requests.post(url, headers=headers, data=data, files=file_data)
+    json_response = response.json()
+
+    return json_response
+
 placeholder1 = st.empty()
 placeholder2 = st.empty()
 placeholder3 = st.empty()
+placeholder4 = st.empty()
 
 if st.session_state.page == 1:
     
@@ -80,6 +99,15 @@ if st.session_state.page == 1:
                 st.session_state["page"] = 2
                 st.rerun()
 
+    # File Uploader
+    with placeholder4.container():
+        uploaded_file = st.file_uploader("Choose a file")
+        if uploaded_file is not None:
+            st.session_state["page"] = 5
+            with open("test.pdf", 'wb') as f:
+                f.write(uploaded_file.getvalue())
+            st.rerun()
+
 elif st.session_state.page == 2:
         
     with placeholder1.container():
@@ -94,27 +122,14 @@ elif st.session_state.page == 2:
 
 elif st.session_state.page == 3:
 
-    url = 'https://api.unstructured.io/general/v0/general'
-    headers = {
-        'accept': 'application/json',
-        'unstructured-api-key': st.secrets['UNSTRUCTURED_API_KEY'],
-    }
-
-    data = {
-        'strategy': 'auto',
-    }
-
-    file_path = "test.jpg"
-    file_data = {'files': open(file_path, 'rb')}
-
-    response = requests.post(url, headers=headers, data=data, files=file_data)
-    json_response = response.json()
+    file_path = 'test.jpg'
+    json_response = parse_unstructured_data(file_path)
 
     with placeholder1.container():
         st.image(file_path)
 
     with placeholder2.container():
-        st.write(json_response)
+        st.info("\n".join([res["text"] for res in json_response]))
 
     with placeholder3.container():
         col1, col2, col3 = st.columns(3)
@@ -167,3 +182,33 @@ elif st.session_state.page == 4:
             if back_button:
                 st.session_state["page"] = 2
                 st.rerun()
+
+elif st.session_state.page == 5:
+
+    file_path = 'test.pdf'
+    json_response = parse_unstructured_data(file_path)
+
+    with placeholder2.container():
+        st.info("\n".join([res["text"] for res in json_response]))
+
+    with placeholder3.container():
+        col1, col2, col3 = st.columns(3)
+        with col1:
+            back_button = st.button("Back")
+            if back_button:
+                st.session_state["page"] = 1
+                st.rerun()
+        with col3:
+            next_button = st.button("Analyze")
+            if next_button:
+                st.session_state["page"] = 4
+                with placeholder2.container():
+                    progress_text = "Analyzing. Please wait."
+                    my_bar = st.progress(0, text=progress_text)
+
+                    for percent_complete in range(100):
+                        time.sleep(0.1)
+                        my_bar.progress(percent_complete + 1, text=progress_text)
+
+                    st.session_state["page"] = 4
+                    st.rerun()

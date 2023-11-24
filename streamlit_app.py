@@ -10,8 +10,6 @@ import streamlit.components.v1 as components
 import streamlit as st
 from streamlit_lottie import st_lottie
 
-from langchain.document_loaders import UnstructuredAPIFileLoader
-
 
 # Initialization
 if "page" not in st.session_state:

@@ -111,7 +111,7 @@ elif st.session_state.page == 3:
     json_response = response.json()
 
     with placeholder1.container():
-        st.image(st.session_state["image"])
+        st.image(file_path)
 
     with placeholder2.container():
         st.json(json_response)
